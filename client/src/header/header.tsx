@@ -1,6 +1,7 @@
 import { faLightbulb } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import {
     Button,
     Collapse,
@@ -27,13 +28,43 @@ const Header = () => {
             <Collapse isOpen={isOpen} navbar>
                 <Nav className="d-flex flex-row w-100" navbar>
                     <NavItem className="mx-1">
-                        <NavLink href="/token">Token</NavLink>
+                        <NavLink>
+                            <Link
+                                to="/token"
+                                style={{
+                                    color: 'inherit',
+                                    textDecoration: 'none',
+                                }}
+                            >
+                                Token
+                            </Link>
+                        </NavLink>
                     </NavItem>
                     <NavItem className="mx-1">
-                        <NavLink href="/nft">NFT</NavLink>
+                        <NavLink>
+                            <Link
+                                to="/nft"
+                                style={{
+                                    color: 'inherit',
+                                    textDecoration: 'none',
+                                }}
+                            >
+                                NFT
+                            </Link>
+                        </NavLink>
                     </NavItem>
                     <NavItem className="mx-1">
-                        <NavLink href="/about">About</NavLink>
+                        <NavLink>
+                            <Link
+                                to="/about"
+                                style={{
+                                    color: 'inherit',
+                                    textDecoration: 'none',
+                                }}
+                            >
+                                About
+                            </Link>
+                        </NavLink>
                     </NavItem>
                     <NavItem className="mx-3 ml-auto">
                         <Button
