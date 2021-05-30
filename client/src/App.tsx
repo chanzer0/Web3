@@ -1,6 +1,5 @@
 import Header from 'header/header';
 import { Container } from 'reactstrap';
-import './theme.css';
 
 const App = () => {
     return (
