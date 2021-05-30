@@ -54,7 +54,7 @@ const Token = () => {
         const contract = new web3.eth.Contract(tokenAbi, tokenAddress);
         const updatedBalance = await contract.methods.balanceOf(account).call();
         console.log(updatedBalance);
-        setBalance(updatedBalance);
+        setBalance(updatedBalance / 10 ** 18);
     };
 
     return (
@@ -64,7 +64,7 @@ const Token = () => {
             </Button>
             <h5>Crowdsale Address: {crowdsaleAddress}</h5>
             <h5>Token Address: {tokenAddress}</h5>
-            <h5>Balance: {balance}</h5>
+            <h5>Balance: {balance} $CHAN</h5>
         </Container>
     );
 };
