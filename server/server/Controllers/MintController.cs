@@ -10,12 +10,12 @@ using System.Threading.Tasks;
 namespace server.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
-    public class TokenController : ControllerBase
+    [Route("/mint")]
+    public class MintController : ControllerBase
     {
         private readonly IMintService _mintService;
 
-        public TokenController(IMintService mintService)
+        public MintController(IMintService mintService)
         {
             _mintService = mintService;
         }
