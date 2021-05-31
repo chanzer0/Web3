@@ -14,11 +14,7 @@ import {
     InputGroupAddon,
 } from 'reactstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {
-    faArrowsAltH,
-    faCoins,
-    faQuestionCircle,
-} from '@fortawesome/free-solid-svg-icons';
+import { faArrowDown, faCoins } from '@fortawesome/free-solid-svg-icons';
 import { faEthereum } from '@fortawesome/free-brands-svg-icons';
 
 declare let window: any;
@@ -117,12 +113,12 @@ const Token = () => {
                                 disabled={isNaN(ethAmount) || ethAmount === 0}
                                 onClick={mintFunds}
                             >
+                                <span className="fa-align-left mr-3">
+                                    <FontAwesomeIcon icon={faArrowDown} />
+                                </span>
                                 Exchange
-                                <span
-                                    className="fa-align-right ml-2"
-                                    data-fa-transform="shrink-3"
-                                >
-                                    <FontAwesomeIcon icon={faArrowsAltH} />
+                                <span className="fa-align-right ml-3">
+                                    <FontAwesomeIcon icon={faArrowDown} />
                                 </span>
                             </Button>
                             <InputGroup className="px-0 my-1">
