@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using server.Models;
 using server.Services.Interfaces;
@@ -9,8 +10,7 @@ using System.Threading.Tasks;
 
 namespace server.Controllers
 {
-    [ApiController]
-    [Route("/mint")]
+    [ApiController, Route("/mint")]
     public class MintController : ControllerBase
     {
         private readonly IMintService _mintService;
