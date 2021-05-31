@@ -26,50 +26,46 @@ const Header = () => {
             </NavbarBrand>
             <NavbarToggler onClick={() => setIsOpen(!isOpen)} />
             <Collapse isOpen={isOpen} navbar>
-                <Nav className="d-flex flex-row w-100" navbar>
-                    <NavItem className="mx-1">
-                        <NavLink>
-                            <Link
-                                to="/token"
-                                style={{
-                                    color: 'inherit',
-                                    textDecoration: 'none',
-                                }}
-                            >
-                                Token
-                            </Link>
-                        </NavLink>
+                <Nav
+                    className="d-flex flex-row w-100 align-items-center"
+                    navbar
+                >
+                    <NavItem className="mx-2">
+                        <Link
+                            to="/token"
+                            style={{
+                                color: 'inherit',
+                                textDecoration: 'none',
+                            }}
+                        >
+                            Token
+                        </Link>
                     </NavItem>
-                    <NavItem className="mx-1">
-                        <NavLink>
-                            <Link
-                                to="/nft"
-                                style={{
-                                    color: 'inherit',
-                                    textDecoration: 'none',
-                                }}
-                            >
-                                NFT
-                            </Link>
-                        </NavLink>
+                    <NavItem className="mx-2">
+                        <Link
+                            to="/nft"
+                            style={{
+                                color: 'inherit',
+                                textDecoration: 'none',
+                            }}
+                        >
+                            NFT
+                        </Link>
                     </NavItem>
-                    <NavItem className="mx-1">
-                        <NavLink>
-                            <Link
-                                to="/about"
-                                style={{
-                                    color: 'inherit',
-                                    textDecoration: 'none',
-                                }}
-                            >
-                                About
-                            </Link>
-                        </NavLink>
+                    <NavItem className="mx-2">
+                        <Link
+                            to="/about"
+                            style={{
+                                color: 'inherit',
+                                textDecoration: 'none',
+                            }}
+                        >
+                            About
+                        </Link>
                     </NavItem>
                     <NavItem className="mx-3 ml-auto">
                         <Button
                             className="btn-sm btn-falcon-default rounded-capsule"
-                            style={{ marginTop: '5px' }}
                             onClick={toggleTheme}
                         >
                             Toggle

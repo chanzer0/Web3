@@ -19,7 +19,7 @@ contract CrowdsaleDeployer {
 
         // create the crowdsale and tell it about the token
         Crowdsale crowdsale = new MyCrowdsale(
-            1,               // rate, still in TKNbits
+            100,             // rate, still in TKNbits
             msg.sender,      // send Ether to the deployer
             token            // the token
         );
