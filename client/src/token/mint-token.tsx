@@ -86,7 +86,7 @@ const MintToken = () => {
     return (
         <Fragment>
             <img src="token.png" height="200" width="200" alt="" />
-            <Row className="d-flex justify-content-around w-50">
+            <Row className="d-flex justify-content-around py-3 w-50">
                 <InputGroup className="px-0 my-1">
                     <InputGroupAddon addonType="prepend">
                         <InputGroupText>

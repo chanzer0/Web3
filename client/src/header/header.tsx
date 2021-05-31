@@ -20,7 +20,16 @@ const Header = () => {
     const toggleTheme = () => {};
 
     return (
-        <Navbar className="py-0 px-1" color="light" light expand="md">
+        <Navbar
+            className="py-0 px-1"
+            color="light"
+            light
+            expand="md"
+            style={{
+                boxShadow:
+                    '0 7px 14px 0 rgb(59 65 94 / 1%), 0 3px 6px 0 rgb(0 0 0 / 7%)',
+            }}
+        >
             <NavbarBrand href="/">
                 <img src="logo.png" alt="" width="172" height="50" />
             </NavbarBrand>

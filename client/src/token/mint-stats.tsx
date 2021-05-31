@@ -1,6 +1,7 @@
 import useAxios from 'axios-hooks';
 import config from 'config-service';
 import React, { Fragment, useEffect } from 'react';
+import { Card, CardTitle } from 'reactstrap';
 
 const MintStats = () => {
     const [{ data: mintData }, executeUpdate] = useAxios(
@@ -21,9 +22,16 @@ const MintStats = () => {
     }, [mintData]);
 
     return (
-        <Fragment>
-            <h3>Stats: </h3>
-        </Fragment>
+        <Card
+            style={{
+                backgroundImage: 'url(corner-4.png)',
+                backgroundSize: 'cover',
+                width: '100%',
+                height: '33.33334%',
+            }}
+        >
+            <CardTitle>Minting Mints</CardTitle>
+        </Card>
     );
 };
 

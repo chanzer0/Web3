@@ -5,22 +5,19 @@ import MintToken from './mint-token';
 const Token = () => {
     return (
         <Container>
-            <Card className="mt-5" style={{ height: '30rem' }}>
-                <Row className="h-100">
-                    <Col
-                        className="d-flex flex-column justify-content-around align-items-center"
-                        sm={6}
-                    >
+            <Row>
+                <Col sm={4} className="d-flex flex-column">
+                    <Card className="mt-5 pt-3 align-items-center">
                         <MintToken />
-                    </Col>
-                    <Col
-                        className="d-flex flex-column justify-content-around align-items-center"
-                        sm={6}
-                    >
-                        <MintStats />
-                    </Col>
-                </Row>
-            </Card>
+                    </Card>
+                </Col>
+                <Col
+                    sm={8}
+                    className="d-flex flex-column justify-content-center align-items-center"
+                >
+                    <MintStats />
+                </Col>
+            </Row>
         </Container>
     );
 };
