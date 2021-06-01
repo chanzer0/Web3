@@ -31,8 +31,9 @@ namespace server
         {
             services.AddCors();
             services.AddDbContext<Context>(opt => opt.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
-            services.AddControllers();
+            services.AddControllers().AddNewtonsoftJson();
             services.AddScoped<IMintService, MintService>();
+            services.AddScoped<IBalanceService, BalanceService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

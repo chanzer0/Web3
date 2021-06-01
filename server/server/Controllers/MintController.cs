@@ -14,16 +14,24 @@ namespace server.Controllers
     public class MintController : ControllerBase
     {
         private readonly IMintService _mintService;
+        private readonly IBalanceService _balanceService;
 
-        public MintController(IMintService mintService)
+        public MintController(IMintService mintService, IBalanceService balanceService)
         {
             _mintService = mintService;
+            _balanceService = balanceService;
         }
 
         [HttpGet]
         public IEnumerable<Mint> GetAll()
         {
             return _mintService.GetAll();
+        }
+
+        [HttpPost]
+        public void Create([FromBody] Mint mint)
+        {
+            _mintService.Create(mint);
         }
     }
 }

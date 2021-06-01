@@ -1,6 +1,6 @@
 import { faLightbulb } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import {
     Button,
@@ -10,12 +10,11 @@ import {
     NavbarBrand,
     NavbarToggler,
     NavItem,
-    NavLink,
 } from 'reactstrap';
 
 const Header = () => {
     const [isOpen, setIsOpen] = useState(true);
-    const [isDarkMode, setIsDarkMode] = useState(false);
+    const [isDarkMode] = useState(false);
 
     const toggleTheme = () => {};
 

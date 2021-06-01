@@ -17,6 +17,7 @@ namespace server.Models
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Mint>().ToTable("Mint");
+            modelBuilder.Entity<Balance>().ToTable("Balance");
         }
     }
 }

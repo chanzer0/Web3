@@ -1,6 +1,6 @@
 import useAxios from 'axios-hooks';
 import config from 'config-service';
-import React, { Fragment, useEffect } from 'react';
+import { useEffect } from 'react';
 import { Card, CardTitle } from 'reactstrap';
 
 const MintStats = () => {

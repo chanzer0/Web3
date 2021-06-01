@@ -1,7 +1,11 @@
 import { faEthereum } from '@fortawesome/free-brands-svg-icons';
-import { faArrowDown, faCoins } from '@fortawesome/free-solid-svg-icons';
+import {
+    faArrowDown,
+    faCoins,
+    faRedoAlt,
+} from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import React, { Fragment, useEffect, useState } from 'react';
+import { Fragment, useEffect, useState } from 'react';
 import { crowdsaleAbi, tokenAbi, crowdsaleDeployAbi } from './abi';
 import {
     Button,
@@ -13,6 +17,8 @@ import {
 } from 'reactstrap';
 import Row from 'reactstrap/es/Row';
 import Web3 from 'web3';
+import config from 'config-service';
+import useAxios from 'axios-hooks';
 
 declare let window: any;
 
@@ -26,6 +32,48 @@ const MintToken = () => {
     const [crowdsaleAddress, setCrowdsaleAddress] = useState('');
     const [tokenAddress, setTokenAddress] = useState('');
     const [balance, setBalance] = useState(0);
+
+    const [, postMint] = useAxios(
+        {
+            url: `${config.coreApiUrl}/mint`,
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+        },
+        { manual: true }
+    );
+
+    const [, postBalance] = useAxios(
+        {
+            url: `${config.coreApiUrl}/balance`,
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+        },
+        { manual: true }
+    );
+
+    useEffect(() => {
+        const getUserBalance = async () => {
+            const accounts = await window.ethereum.enable();
+            const account = accounts[0];
+            // @ts-ignore
+            const contract = new web3.eth.Contract(tokenAbi, tokenAddress);
+            const updatedBalance = await contract.methods
+                .balanceOf(account)
+                .call();
+            const convertedBalance = updatedBalance / 10 ** 18;
+            setBalance(convertedBalance);
+
+            const newBalance = {
+                address: account,
+                currentBalance: convertedBalance,
+                timestamp: new Date(),
+            };
+            postBalance({ data: newBalance });
+        };
+        if (tokenAddress !== '') {
+            getUserBalance();
+        }
+    }, [tokenAddress, postBalance]);
 
     useEffect(() => {
         const getCrowdsaleAddress = async () => {
@@ -48,7 +96,7 @@ const MintToken = () => {
         const accounts = await window.ethereum.enable();
         const account = accounts[0];
 
-        const value = web3.utils.toBN(
+        const value: any = web3.utils.toBN(
             web3.utils.toWei(ethAmount.toString(), 'ether')
         );
         const gas = await contract.methods.buyTokens(account).estimateGas({
@@ -62,18 +110,38 @@ const MintToken = () => {
             value: value,
             gas: gas,
         });
-        console.log(result);
-        getBalance();
+
+        if (result.status === true) {
+            const amountEth = +(value / 10 ** 18);
+            const amountCzt = +((value * 100) / 10 ** 18);
+
+            updateBalance();
+
+            const newMint = {
+                address: account,
+                amountEth: amountEth,
+                amountCzt: amountCzt,
+                timestamp: new Date(),
+            };
+            postMint({ data: newMint });
+        }
     };
 
-    const getBalance = async () => {
+    const updateBalance = async () => {
         const accounts = await window.ethereum.enable();
         const account = accounts[0];
         // @ts-ignore
         const contract = new web3.eth.Contract(tokenAbi, tokenAddress);
         const updatedBalance = await contract.methods.balanceOf(account).call();
-        console.log(updatedBalance);
-        setBalance(updatedBalance / 10 ** 18);
+        const convertedBalance = updatedBalance / 10 ** 18;
+        setBalance(convertedBalance);
+
+        const newBalance = {
+            address: account,
+            currentBalance: convertedBalance,
+            timestamp: new Date(),
+        };
+        postBalance({ data: newBalance });
     };
 
     const updateMintAmount = (e: any) => {
@@ -125,7 +193,16 @@ const MintToken = () => {
                     />
                 </InputGroup>
             </Row>
-            <CardTitle>Your Balance: {balance} $CZT</CardTitle>
+            <CardTitle>
+                Your Balance: {balance} $CZT
+                <Button
+                    className="ml-2 btn-sm"
+                    style={{ marginBottom: '3px' }}
+                    onClick={updateBalance}
+                >
+                    <FontAwesomeIcon icon={faRedoAlt} />
+                </Button>
+            </CardTitle>
         </Fragment>
     );
 };
