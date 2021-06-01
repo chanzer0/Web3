@@ -8,11 +8,11 @@ namespace server.Models
     public class Balance : Model
     {
         public string Address { get; set; }
-        public long AmountCzt { get; set; }
+        public double AmountCzt { get; set; }
     }
 
     public class ApiBalance : Balance
     {
-        public long CurrentBalance { get; set; }
+        public double CurrentBalance { get; set; }
     }
 }

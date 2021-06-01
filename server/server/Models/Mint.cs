@@ -10,8 +10,8 @@ namespace server.Models
     {
         public string Address { get; set; }
 
-        public int AmountEth { get; set; }
+        public double AmountEth { get; set; }
 
-        public int AmountCzt { get; set; }
+        public double AmountCzt { get; set; }
     }
 }
