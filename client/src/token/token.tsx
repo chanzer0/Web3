@@ -1,4 +1,4 @@
-import { Container, Card, Col, Row } from 'reactstrap';
+import { Container, Col, Row } from 'reactstrap';
 import MintStats from './mint-stats';
 import MintToken from './mint-token';
 
@@ -7,9 +7,7 @@ const Token = () => {
         <Container>
             <Row>
                 <Col sm={4} className="d-flex flex-column">
-                    <Card className="mt-5 pt-3 align-items-center">
-                        <MintToken />
-                    </Card>
+                    <MintToken />
                 </Col>
                 <Col
                     sm={8}

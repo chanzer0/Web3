@@ -18,6 +18,12 @@ namespace server.Controllers
             _balanceService = balanceService;
         }
 
+        [HttpGet, Route("top-10")]
+        public IEnumerable<Balance> GetAll()
+        {
+            return _balanceService.GetAll().OrderByDescending(b => b.AmountCzt).Take(10);
+        }
+
         [HttpGet, Route("{address}")]
         public Balance GetByAddress(string address)
         {

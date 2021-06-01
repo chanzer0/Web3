@@ -5,10 +5,11 @@ import {
     faRedoAlt,
 } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { Fragment, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { crowdsaleAbi, tokenAbi, crowdsaleDeployAbi } from './abi';
 import {
     Button,
+    Card,
     CardTitle,
     Input,
     InputGroup,
@@ -152,7 +153,7 @@ const MintToken = () => {
     };
 
     return (
-        <Fragment>
+        <Card className="mt-5 pt-3 align-items-center">
             <img src="token.png" height="200" width="200" alt="" />
             <Row className="d-flex justify-content-around py-3 w-50">
                 <InputGroup className="px-0 my-1">
@@ -193,17 +194,8 @@ const MintToken = () => {
                     />
                 </InputGroup>
             </Row>
-            <CardTitle>
-                Your Balance: {balance} $CZT
-                <Button
-                    className="ml-2 btn-sm"
-                    style={{ marginBottom: '3px' }}
-                    onClick={updateBalance}
-                >
-                    <FontAwesomeIcon icon={faRedoAlt} />
-                </Button>
-            </CardTitle>
-        </Fragment>
+            <CardTitle>Your Balance: {balance} $CZT</CardTitle>
+        </Card>
     );
 };
 
