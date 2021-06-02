@@ -10,6 +10,7 @@ import { crowdsaleAbi, tokenAbi, crowdsaleDeployAbi } from './abi';
 import {
     Button,
     Card,
+    CardHeader,
     CardTitle,
     Input,
     InputGroup,
@@ -20,6 +21,7 @@ import Row from 'reactstrap/es/Row';
 import Web3 from 'web3';
 import config from 'config-service';
 import useAxios from 'axios-hooks';
+import React from 'react';
 
 declare let window: any;
 
@@ -71,7 +73,7 @@ const MintToken = () => {
             };
             postBalance({ data: newBalance });
         };
-        if (tokenAddress !== '') {
+        if (tokenAddress !== '' && tokenAddress != null) {
             getUserBalance();
         }
     }, [tokenAddress, postBalance]);
@@ -79,10 +81,12 @@ const MintToken = () => {
     useEffect(() => {
         const getCrowdsaleAddress = async () => {
             const result = await contract.methods.getCrowdsaleAddress().call();
+            console.log(result);
             setCrowdsaleAddress(result);
         };
         const getTokenAddress = async () => {
             const result = await contract.methods.getTokenAddress().call();
+            console.log(result);
             setTokenAddress(result);
         };
 
@@ -153,9 +157,26 @@ const MintToken = () => {
     };
 
     return (
-        <Card className="mt-5 pt-3 align-items-center">
-            <img src="token.png" height="200" width="200" alt="" />
-            <Row className="d-flex justify-content-around py-3 w-50">
+        <Card className="mt-5 align-items-center">
+            <CardHeader
+                className="w-100"
+                style={{
+                    backgroundImage: 'url(corner-4.png)',
+                    backgroundSize: 'cover',
+                    boxShadow:
+                        '0 7px 14px 0 rgb(59 65 94 / 1%), 0 3px 6px 0 rgb(0 0 0 / 7%)',
+                }}
+            >
+                <CardTitle className="mb-0">Mint $CZT</CardTitle>
+            </CardHeader>
+            <img
+                className="mt-3"
+                src="token.png"
+                height="200"
+                width="200"
+                alt=""
+            />
+            <Row className="d-flex justify-content-around py-2 w-50">
                 <InputGroup className="px-0 my-1">
                     <InputGroupAddon addonType="prepend">
                         <InputGroupText>

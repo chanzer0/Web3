@@ -20,13 +20,14 @@ const MintStats = () => {
 
     useEffect(() => {
         if (balanceData != null) {
-            console.log(balanceData);
+            // console.log(balanceData);
         }
     }, [balanceData]);
 
     return (
-        <Card>
+        <Card className="mt-5 align-items-center">
             <CardHeader
+                className="w-100"
                 style={{
                     backgroundImage: 'url(corner-4.png)',
                     backgroundSize: 'cover',
@@ -38,16 +39,21 @@ const MintStats = () => {
             </CardHeader>
 
             <BarChart
-                className="mt-5"
-                width={730}
-                height={250}
+                className="mt-3"
+                width={900}
+                height={392}
                 data={balanceData}
             >
-                {/* <CartesianGrid strokeDasharray="3 3" /> */}
-                <XAxis dataKey="address" />
+                <XAxis
+                    dataKey="address"
+                    interval={0}
+                    tickFormatter={(val) =>
+                        val.toString().substring(0, 4) + '...'
+                    }
+                />
                 <YAxis />
                 <Tooltip />
-                <Bar dataKey="amountCzt" fill="#82ca9d" />
+                <Bar dataKey="amountCzt" fill="#82ca9d" radius={[5, 5, 0, 0]} />
             </BarChart>
         </Card>
     );
