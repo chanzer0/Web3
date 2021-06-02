@@ -19,7 +19,6 @@ const BalanceStats = (props: IBalanceStatsProps) => {
             >
                 <CardTitle className="mb-0">Biggest Accounts</CardTitle>
             </CardHeader>
-
             <BarChart
                 className="mt-3"
                 width={900}
@@ -30,7 +29,7 @@ const BalanceStats = (props: IBalanceStatsProps) => {
                     dataKey="address"
                     interval={0}
                     tickFormatter={(val) =>
-                        val.toString().substring(0, 4) + '...'
+                        val.toString().substring(0, 6) + '...'
                     }
                 />
                 <YAxis />

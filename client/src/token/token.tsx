@@ -1,12 +1,14 @@
 import useAxios from 'axios-hooks';
 import config from 'config-service';
+import React from 'react';
 import { useEffect } from 'react';
 import { Container, Col, Row } from 'reactstrap';
 import BalanceStats from './balance-stats';
 import MintToken from './mint-token';
+import RecentMints from './recent-mints';
 
 const Token = () => {
-    const [{ data: balanceData }, executeUpdate] = useAxios(
+    const [{ data: balanceData }, getTopBalances] = useAxios(
         {
             url: `${config.coreApiUrl}/balance/top-10`,
             method: 'GET',
@@ -15,9 +17,24 @@ const Token = () => {
         { manual: true /*, useCache: false */ }
     );
 
+    const [{ data: mintHistory }, getRecentMints] = useAxios(
+        {
+            url: `${config.coreApiUrl}/mint`,
+            method: 'GET',
+            headers: { 'Content-Type': 'application/json' },
+        },
+        { manual: true /*, useCache: false */ }
+    );
+
     useEffect(() => {
-        executeUpdate();
-    }, [executeUpdate]);
+        getTopBalances();
+        getRecentMints();
+    }, [getTopBalances, getRecentMints]);
+
+    const executeUpdate = () => {
+        getTopBalances();
+        getRecentMints();
+    };
 
     return (
         <Container>
@@ -27,6 +44,11 @@ const Token = () => {
                 </Col>
                 <Col sm={8} className="d-flex flex-column">
                     <BalanceStats key={balanceData} data={balanceData} />
+                </Col>
+            </Row>
+            <Row>
+                <Col sm={12}>
+                    <RecentMints key={mintHistory} data={mintHistory} />
                 </Col>
             </Row>
         </Container>
