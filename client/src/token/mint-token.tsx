@@ -1,9 +1,5 @@
 import { faEthereum } from '@fortawesome/free-brands-svg-icons';
-import {
-    faArrowDown,
-    faCoins,
-    faRedoAlt,
-} from '@fortawesome/free-solid-svg-icons';
+import { faArrowDown, faCoins } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useEffect, useState } from 'react';
 import { crowdsaleAbi, tokenAbi, crowdsaleDeployAbi } from './abi';
@@ -30,7 +26,11 @@ const crowdSaleDeployAddr = '0xA09D57a953D262a2541C49E5FD6AF0C9c710102C';
 // @ts-ignore
 const contract = new web3.eth.Contract(crowdsaleDeployAbi, crowdSaleDeployAddr);
 
-const MintToken = () => {
+export interface IMintTokenProps {
+    onChange: Function;
+}
+
+const MintToken = (props: IMintTokenProps) => {
     const [ethAmount, setEthAmount] = useState(1);
     const [crowdsaleAddress, setCrowdsaleAddress] = useState('');
     const [tokenAddress, setTokenAddress] = useState('');
@@ -147,10 +147,10 @@ const MintToken = () => {
             timestamp: new Date(),
         };
         postBalance({ data: newBalance });
+        props.onChange();
     };
 
     const updateMintAmount = (e: any) => {
-        console.log(!isNaN(+e.target.value));
         if (!isNaN(+e.target.value)) {
             setEthAmount(+e.target.value);
         }

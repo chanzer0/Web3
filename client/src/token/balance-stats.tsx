@@ -1,29 +1,11 @@
-import useAxios from 'axios-hooks';
-import config from 'config-service';
-import React, { useEffect } from 'react';
 import { Card, CardHeader, CardTitle } from 'reactstrap';
 import { Bar, BarChart, XAxis, YAxis, Tooltip } from 'recharts';
 
-const MintStats = () => {
-    const [{ data: balanceData }, executeUpdate] = useAxios(
-        {
-            url: `${config.coreApiUrl}/balance/top-10`,
-            method: 'GET',
-            headers: { 'Content-Type': 'application/json' },
-        },
-        { manual: true /*, useCache: false */ }
-    );
+export interface IBalanceStatsProps {
+    data: any[];
+}
 
-    useEffect(() => {
-        executeUpdate();
-    }, [executeUpdate]);
-
-    useEffect(() => {
-        if (balanceData != null) {
-            // console.log(balanceData);
-        }
-    }, [balanceData]);
-
+const BalanceStats = (props: IBalanceStatsProps) => {
     return (
         <Card className="mt-5 align-items-center">
             <CardHeader
@@ -42,7 +24,7 @@ const MintStats = () => {
                 className="mt-3"
                 width={900}
                 height={392}
-                data={balanceData}
+                data={props.data}
             >
                 <XAxis
                     dataKey="address"
@@ -59,4 +41,4 @@ const MintStats = () => {
     );
 };
 
-export default MintStats;
+export default BalanceStats;
