@@ -12,7 +12,6 @@ const App = () => {
             <Header />
             <Switch>
                 <Redirect exact from="/" to="/token" />
-                <Route path="/" component={Token} />
                 <Route path="/token" component={Token} />
                 <Route path="/nft" component={NFT} />
                 <Route path="/about" component={About} />
