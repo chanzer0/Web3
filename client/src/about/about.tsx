@@ -25,7 +25,7 @@ const hrefMap: any = {
     'ape2.png':
         'https://opensea.io/assets/0xbc4ca0eda7647a8ab7c2061c2e118a18a936f13d/9381',
     'meebit.png': 'https://meebits.larvalabs.com/meebits/detail?index=19173',
-    'framenti.png': 'https://api.artblocks.io/generator/72000202',
+    'frammenti.png': 'https://api.artblocks.io/generator/72000202',
 };
 const sources = [
     'bonsai.gif',
@@ -105,7 +105,24 @@ const About = () => {
                             <Row>
                                 <Col sm={12}>chanZERO</Col>
                             </Row>
-                            <Row className="mt-3">
+                            <Row className="mt-4">
+                                <Col sm={12}>
+                                    <h5>Contact</h5>
+                                </Col>
+                            </Row>
+                            <Row>
+                                <Col sm={12}>
+                                    <a
+                                        style={{ color: 'inherit' }}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        href="mailto: chan@chanzero.io"
+                                    >
+                                        chan@chanzero.io
+                                    </a>
+                                </Col>
+                            </Row>
+                            <Row className="mt-4">
                                 <Col sm={12}>
                                     <h5>Description</h5>
                                 </Col>
