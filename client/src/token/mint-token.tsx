@@ -81,12 +81,10 @@ const MintToken = (props: IMintTokenProps) => {
     useEffect(() => {
         const getCrowdsaleAddress = async () => {
             const result = await contract.methods.getCrowdsaleAddress().call();
-            console.log(result);
             setCrowdsaleAddress(result);
         };
         const getTokenAddress = async () => {
             const result = await contract.methods.getTokenAddress().call();
-            console.log(result);
             setTokenAddress(result);
         };
 

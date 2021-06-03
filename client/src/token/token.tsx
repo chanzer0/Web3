@@ -32,6 +32,7 @@ const Token = () => {
     }, [getTopBalances, getRecentMints]);
 
     const executeUpdate = () => {
+        console.log('executing update');
         getTopBalances();
         getRecentMints();
     };

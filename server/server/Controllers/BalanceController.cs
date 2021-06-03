@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using server.Models;
 using server.Services.Interfaces;
 using System;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace server.Controllers
 {
-    [ApiController, Route("/balance")]
+    [ApiController, Route("/balance"), AllowAnonymous]
     public class BalanceController : ControllerBase
     {
         private readonly IBalanceService _balanceService;

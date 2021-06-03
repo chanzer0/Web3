@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace server.Controllers
 {
-    [ApiController, Route("/mint")]
+    [ApiController, Route("/mint"), AllowAnonymous]
     public class MintController : ControllerBase
     {
         private readonly IMintService _mintService;
@@ -25,7 +25,7 @@ namespace server.Controllers
         [HttpGet]
         public IEnumerable<Mint> GetAll()
         {
-            return _mintService.GetAll();
+            return _mintService.GetAll().OrderByDescending(m => m.Timestamp);
         }
 
         [HttpPost]

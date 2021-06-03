@@ -38,7 +38,7 @@ const RecentMints = (props: IRecentMintsProps) => {
                         </TableHead>
                         <TableBody>
                             {props.data.map((row) => (
-                                <TableRow key={row.name}>
+                                <TableRow key={row.timestamp}>
                                     <TableCell component="th" scope="row">
                                         {row.address}
                                     </TableCell>
