@@ -186,7 +186,7 @@ const About = () => {
                                             style={{ color: 'inherit' }}
                                             target="_blank"
                                             rel="noopener noreferrer"
-                                            href="https://opensea.io/accounts/AB123AB321"
+                                            href="https://opensea.io/FC3308"
                                         >
                                             OpenSea
                                             <FontAwesomeIcon

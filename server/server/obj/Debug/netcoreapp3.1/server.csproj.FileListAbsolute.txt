@@ -46,7 +46,6 @@ C:\Users\Sean\source\repos\Web3\server\server\bin\Debug\netcoreapp3.1\runtimes\w
 C:\Users\Sean\source\repos\Web3\server\server\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.pdb
 C:\Users\Sean\source\repos\Web3\server\server\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Runtime.Caching.dll
 C:\Users\Sean\source\repos\Web3\server\server\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
-C:\Users\Sean\source\repos\Web3\server\server\obj\Debug\netcoreapp3.1\server.csprojAssemblyReference.cache
 C:\Users\Sean\source\repos\Web3\server\server\obj\Debug\netcoreapp3.1\server.AssemblyInfoInputs.cache
 C:\Users\Sean\source\repos\Web3\server\server\obj\Debug\netcoreapp3.1\server.AssemblyInfo.cs
 C:\Users\Sean\source\repos\Web3\server\server\obj\Debug\netcoreapp3.1\server.csproj.CoreCompileInputs.cache
@@ -67,3 +66,4 @@ C:\Users\Sean\source\repos\Web3\server\server\bin\Debug\netcoreapp3.1\Swashbuckl
 C:\Users\Sean\source\repos\Web3\server\server\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.Swagger.dll
 C:\Users\Sean\source\repos\Web3\server\server\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.SwaggerGen.dll
 C:\Users\Sean\source\repos\Web3\server\server\obj\Debug\netcoreapp3.1\server.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\Sean\source\repos\Web3\server\server\obj\Debug\netcoreapp3.1\server.csproj.AssemblyReference.cache
