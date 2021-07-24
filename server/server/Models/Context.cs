@@ -18,6 +18,8 @@ namespace server.Models
         {
             modelBuilder.Entity<Mint>().ToTable("Mint");
             modelBuilder.Entity<Balance>().ToTable("Balance");
+            modelBuilder.Entity<Collection>().ToTable("Collections");
+            modelBuilder.Entity<Image>().ToTable("Images");
         }
     }
 }

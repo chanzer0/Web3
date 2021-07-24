@@ -4,7 +4,6 @@ import { TableBody, TableRow } from '@material-ui/core';
 import { TableCell } from '@material-ui/core';
 import { TableHead } from '@material-ui/core';
 import { Table } from '@material-ui/core';
-import React, { useEffect, useState } from 'react';
 import {
     Card,
     CardBody,
@@ -15,40 +14,7 @@ import {
     Row,
 } from 'reactstrap';
 
-const hrefMap: any = {
-    'bonsai.gif':
-        'https://opensea.io/assets/0xec9c519d49856fd2f8133a0741b4dbe002ce211b/1652',
-    'bonsai2.gif':
-        'https://opensea.io/assets/0xec9c519d49856fd2f8133a0741b4dbe002ce211b/8555',
-    'ape.png':
-        'https://opensea.io/assets/0xbc4ca0eda7647a8ab7c2061c2e118a18a936f13d/542',
-    'ape2.png':
-        'https://opensea.io/assets/0xbc4ca0eda7647a8ab7c2061c2e118a18a936f13d/9381',
-    'meebit.png': 'https://meebits.larvalabs.com/meebits/detail?index=19173',
-    'frammenti.png': 'https://api.artblocks.io/generator/72000202',
-};
-const sources = [
-    'bonsai.gif',
-    'bonsai2.gif',
-    'ape.png',
-    'ape2.png',
-    'meebit.png',
-    'frammenti.png',
-];
-
 const About = () => {
-    const [imgSrc, setImgSrc] = useState('');
-
-    useEffect(() => {
-        const random = Math.floor(Math.random() * sources.length);
-        setImgSrc(sources[random]);
-    }, []);
-
-    setInterval(() => {
-        const random = Math.floor(Math.random() * sources.length);
-        setImgSrc(sources[random]);
-    }, 15 * 1000);
-
     return (
         <Container>
             <Row className="my-5">
@@ -84,10 +50,12 @@ const About = () => {
                                 <a
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    href={hrefMap[imgSrc]}
+                                    href={
+                                        'https://opensea.io/assets/0x1a92f7381b9f03921564a437210bb9396471050c/8048'
+                                    }
                                 >
                                     <img
-                                        src={imgSrc}
+                                        src={'cat.png'}
                                         alt="a"
                                         height="190px"
                                         width="190px"
@@ -136,20 +104,17 @@ const About = () => {
                                     world. <br />
                                     <br /> This website is a manifestation of my
                                     passion for engineering and the Ethereum
-                                    ecosystem. In it, I hope to provide basic
+                                    ecosystem and its intersection with art and
+                                    creativity. In it, I hope to provide basic
                                     information about the decentralized world,
-                                    as well as let you interact with it through
-                                    a test network, risk-free. <br />
-                                    <br /> In my leisure time, I enjoy exploring
-                                    new NFT projects and dApps or playing games
-                                    like chess, geoguessr, and the occasional
-                                    FPS.
+                                    as well as let you explore the art I like to
+                                    create as a hobbyist photographer.
                                 </Col>
                             </Row>
-                            <hr style={{ marginTop: '30px' }} />
+                            <hr className="my-4" />
                             <Row className="d-flex">
                                 <Col sm={4}>
-                                    <h6>
+                                    <small>
                                         <a
                                             style={{ color: 'inherit' }}
                                             target="_blank"
@@ -158,14 +123,14 @@ const About = () => {
                                         >
                                             Twitter
                                             <FontAwesomeIcon
-                                                className="ml-2"
+                                                className="ml-1"
                                                 icon={faExternalLinkAlt}
                                             />
                                         </a>
-                                    </h6>
+                                    </small>
                                 </Col>
                                 <Col sm={4}>
-                                    <h6>
+                                    <small>
                                         <a
                                             style={{ color: 'inherit' }}
                                             target="_blank"
@@ -174,27 +139,27 @@ const About = () => {
                                         >
                                             Github
                                             <FontAwesomeIcon
-                                                className="ml-2"
+                                                className="ml-1"
                                                 icon={faExternalLinkAlt}
                                             />
                                         </a>
-                                    </h6>
+                                    </small>
                                 </Col>
                                 <Col sm={4}>
-                                    <h6>
+                                    <small>
                                         <a
                                             style={{ color: 'inherit' }}
                                             target="_blank"
                                             rel="noopener noreferrer"
-                                            href="https://opensea.io/FC3308"
+                                            href="https://opensea.io/chanzero-vault"
                                         >
                                             OpenSea
                                             <FontAwesomeIcon
-                                                className="ml-2"
+                                                className="ml-1"
                                                 icon={faExternalLinkAlt}
                                             />
                                         </a>
-                                    </h6>
+                                    </small>
                                 </Col>
                             </Row>
                         </CardBody>
@@ -232,8 +197,7 @@ const About = () => {
                                     interchangeable) from one another, ERC-721
                                     tokens are purposely built such that each
                                     one is unique and therefore non-fungible
-                                    (non-interchangeable) even though they may
-                                    be minted and share a common contract.{' '}
+                                    (non-interchangeable).{' '}
                                     <a
                                         target="_blank"
                                         rel="noopener noreferrer"
@@ -242,17 +206,28 @@ const About = () => {
                                         Read More About This Topic
                                     </a>
                                 </Col>
-                                <Col sm={6} style={{ top: '-42px' }}>
+                                <Col sm={6}>
                                     <Table>
                                         <TableHead>
                                             <TableRow>
-                                                <TableCell>
+                                                <TableCell
+                                                    className="pt-0"
+                                                    style={{ color: '#9da9bb' }}
+                                                >
                                                     Token Type
                                                 </TableCell>
-                                                <TableCell align="left">
+                                                <TableCell
+                                                    className="pt-0"
+                                                    align="left"
+                                                    style={{ color: '#9da9bb' }}
+                                                >
                                                     Description
                                                 </TableCell>
-                                                <TableCell align="left">
+                                                <TableCell
+                                                    className="pt-0"
+                                                    align="left"
+                                                    style={{ color: '#9da9bb' }}
+                                                >
                                                     Example
                                                 </TableCell>
                                             </TableRow>
@@ -263,6 +238,7 @@ const About = () => {
                                                     align="left"
                                                     component="th"
                                                     scope="row"
+                                                    style={{ color: '#9da9bb' }}
                                                 >
                                                     <a
                                                         target="_blank"
@@ -275,15 +251,22 @@ const About = () => {
                                                         ERC-20 ↪
                                                     </a>
                                                 </TableCell>
-                                                <TableCell align="left">
+                                                <TableCell
+                                                    style={{ color: '#9da9bb' }}
+                                                    align="left"
+                                                >
                                                     Fungible, Divisible
                                                 </TableCell>
-                                                <TableCell align="left">
+                                                <TableCell
+                                                    style={{ color: '#9da9bb' }}
+                                                    align="left"
+                                                >
                                                     $SUSHI, $CZT
                                                 </TableCell>
                                             </TableRow>
                                             <TableRow>
                                                 <TableCell
+                                                    style={{ color: '#9da9bb' }}
                                                     align="left"
                                                     component="th"
                                                     scope="row"
@@ -299,10 +282,16 @@ const About = () => {
                                                         ERC-721 ↪
                                                     </a>
                                                 </TableCell>
-                                                <TableCell align="left">
+                                                <TableCell
+                                                    style={{ color: '#9da9bb' }}
+                                                    align="left"
+                                                >
                                                     Non-Fungible, Non-Divisible
                                                 </TableCell>
-                                                <TableCell align="left">
+                                                <TableCell
+                                                    style={{ color: '#9da9bb' }}
+                                                    align="left"
+                                                >
                                                     CryptoPunks
                                                 </TableCell>
                                             </TableRow>
@@ -311,6 +300,7 @@ const About = () => {
                                                     align="left"
                                                     component="th"
                                                     scope="row"
+                                                    style={{ color: '#9da9bb' }}
                                                 >
                                                     <a
                                                         target="_blank"
@@ -323,10 +313,16 @@ const About = () => {
                                                         ERC-1155 ↪
                                                     </a>
                                                 </TableCell>
-                                                <TableCell align="left">
+                                                <TableCell
+                                                    style={{ color: '#9da9bb' }}
+                                                    align="left"
+                                                >
                                                     Fungible or Non-Fungible
                                                 </TableCell>
-                                                <TableCell align="left">
+                                                <TableCell
+                                                    style={{ color: '#9da9bb' }}
+                                                    align="left"
+                                                >
                                                     Ethlings Wearables
                                                 </TableCell>
                                             </TableRow>
@@ -334,7 +330,7 @@ const About = () => {
                                     </Table>
                                 </Col>
                             </Row>
-                            <Row className="mt-3">
+                            <Row>
                                 <Col sm={12}>
                                     <h5>What Are Tokens Used For?</h5>
                                 </Col>
@@ -421,14 +417,14 @@ const About = () => {
                                 <Col sm={12}>
                                     <ol type="1">
                                         <li>
-                                            As with Ethereum mainnet, you will
-                                            need to use MetaMask to store,
-                                            receive, and transfer funds and
-                                            interact with smart contracts.
-                                            MetaMask is a secure browser
-                                            extension that most dApps use to
-                                            interact. To learn how to install
-                                            and use MetaMask, I reccommend{' '}
+                                            You will need to use MetaMask to
+                                            store, receive, and transfer funds
+                                            and interact with the smart
+                                            contracts on this website. MetaMask
+                                            is a secure browser extension that
+                                            most dApps use to interact. To learn
+                                            how to install and use MetaMask, I
+                                            reccommend{' '}
                                             <a
                                                 target="_blank"
                                                 rel="noopener noreferrer"
@@ -439,68 +435,16 @@ const About = () => {
                                             .
                                         </li>
                                         <li>
-                                            All interactions on this website are
-                                            done through the{' '}
-                                            <a
-                                                target="_blank"
-                                                rel="noopener noreferrer"
-                                                href="https://medium.com/swlh/what-are-smart-contracts-6c13f6c725d7"
-                                            >
-                                                Görli Testnet
-                                            </a>
-                                            . To use the Görli Testnet, you will
-                                            have to select it in the list of
-                                            networks in your MetaMask. This
-                                            network behaves in the same exact
-                                            manner as the Ethereum mainnet,
-                                            giving you good experience in using
-                                            Ethereum without the risk of losing
-                                            rela money. This means the funds you
-                                            receive and spend are NOT "real", in
-                                            the sense that they are not on the
-                                            Ethereum Mainnet. I would reccommend
-                                            creating a new address in MetaMask
-                                            solely for use on this and any other
-                                            testnet. You can request "faucet
-                                            funds" to your wallet at any of the
-                                            following websites:
-                                            <ul>
-                                                <li>
-                                                    <a
-                                                        target="_blank"
-                                                        rel="noopener noreferrer"
-                                                        href="https://goerli-faucet.slock.it/"
-                                                    >
-                                                        Simple Faucet
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a
-                                                        target="_blank"
-                                                        rel="noopener noreferrer"
-                                                        href="https://faucet.goerli.mudit.blog/"
-                                                    >
-                                                        Social Faucet
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </li>
-                                        <li>
                                             Now that you have a MetaMask set up
-                                            and connected to the Görli Testnet,
-                                            with funds from a faucet, you are
-                                            free to interact with any of the
-                                            contracts found on this website. The
-                                            "Token" page will allow you to mint
-                                            my custom ERC-20 token,
-                                            "ChanZeroToken ($CZT)". On the "NFT"
-                                            page you can mint a one-of-a-kind
-                                            generative NFT. These are cool
-                                            because the NFT is made
-                                            algorithmically <i>during</i> the
-                                            process of minting. It's provably
-                                            yours, and unique from all other
-                                            NFTs!
+                                            and connected - you are free to
+                                            interact with any of the contracts
+                                            found on this website. On the
+                                            "Gallery" page, you will find my
+                                            work that is minted on my own custom
+                                            smart contract. This smart contract
+                                            means the artwork you're buying is
+                                            provably yours and that the piece is
+                                            authentic!
                                         </li>
                                     </ol>
                                 </Col>

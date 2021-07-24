@@ -14,9 +14,6 @@ import {
 
 const Header = () => {
     const [isOpen, setIsOpen] = useState(true);
-    const [isDarkMode] = useState(false);
-
-    const toggleTheme = () => {};
 
     return (
         <Navbar
@@ -30,7 +27,7 @@ const Header = () => {
             }}
         >
             <NavbarBrand href="/">
-                <img src="logo.png" alt="" width="172" height="50" />
+                <img src="/logo.png" alt="" width="172" height="50" />
             </NavbarBrand>
             <NavbarToggler onClick={() => setIsOpen(!isOpen)} />
             <Collapse isOpen={isOpen} navbar>
@@ -40,24 +37,13 @@ const Header = () => {
                 >
                     <NavItem className="mx-2">
                         <Link
-                            to="/token"
+                            to="/gallery"
                             style={{
                                 color: 'inherit',
                                 textDecoration: 'none',
                             }}
                         >
-                            Token
-                        </Link>
-                    </NavItem>
-                    <NavItem className="mx-2">
-                        <Link
-                            to="/nft"
-                            style={{
-                                color: 'inherit',
-                                textDecoration: 'none',
-                            }}
-                        >
-                            NFT
+                            Gallery
                         </Link>
                     </NavItem>
                     <NavItem className="mx-2">
@@ -71,7 +57,7 @@ const Header = () => {
                             About
                         </Link>
                     </NavItem>
-                    <NavItem className="mx-3 ml-auto">
+                    {/* <NavItem className="mx-3 ml-auto">
                         <Button
                             className="btn-sm btn-falcon-default rounded-capsule"
                             onClick={toggleTheme}
@@ -88,7 +74,7 @@ const Header = () => {
                                 )}
                             </span>
                         </Button>
-                    </NavItem>
+                    </NavItem> */}
                 </Nav>
             </Collapse>
         </Navbar>

@@ -34,6 +34,8 @@ namespace server
             services.AddControllers().AddNewtonsoftJson();
             services.AddScoped<IMintService, MintService>();
             services.AddScoped<IBalanceService, BalanceService>();
+            services.AddScoped<ICollectionService, CollectionService>();
+            services.AddScoped<IImageService, ImageService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
