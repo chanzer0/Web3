@@ -1,15 +1,13 @@
-import { faLightbulb } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import {
-    Button,
     Collapse,
     Nav,
     Navbar,
     NavbarBrand,
     NavbarToggler,
     NavItem,
+    Row,
 } from 'reactstrap';
 
 const Header = () => {
@@ -17,7 +15,7 @@ const Header = () => {
 
     return (
         <Navbar
-            className="py-0 px-1"
+            className="py-0 px-1 d-flex align-items-center justify-content-center"
             color="light"
             light
             expand="md"
@@ -26,57 +24,55 @@ const Header = () => {
                     '0 7px 14px 0 rgb(59 65 94 / 1%), 0 3px 6px 0 rgb(0 0 0 / 7%)',
             }}
         >
-            <NavbarBrand href="/">
-                <img src="/logo.png" alt="" width="172" height="50" />
-            </NavbarBrand>
-            <NavbarToggler onClick={() => setIsOpen(!isOpen)} />
-            <Collapse isOpen={isOpen} navbar>
-                <Nav
-                    className="d-flex flex-row w-100 align-items-center"
-                    navbar
+            <NavItem
+                className="mx-4"
+                style={{
+                    listStyle: 'none',
+                    backgroundImage: 'none',
+                    backgroundRepeat: 'none',
+                    backgroundPosition: '0',
+                }}
+            >
+                <Link
+                    to="/gallery"
+                    style={{
+                        color: 'inherit',
+                        textDecoration: 'none',
+                    }}
                 >
-                    <NavItem className="mx-2">
-                        <Link
-                            to="/gallery"
-                            style={{
-                                color: 'inherit',
-                                textDecoration: 'none',
-                            }}
-                        >
-                            Gallery
-                        </Link>
-                    </NavItem>
-                    <NavItem className="mx-2">
-                        <Link
-                            to="/about"
-                            style={{
-                                color: 'inherit',
-                                textDecoration: 'none',
-                            }}
-                        >
-                            About
-                        </Link>
-                    </NavItem>
-                    {/* <NavItem className="mx-3 ml-auto">
-                        <Button
-                            className="btn-sm btn-falcon-default rounded-capsule"
-                            onClick={toggleTheme}
-                        >
-                            Toggle
-                            <span
-                                className="fa-align-right ml-2"
-                                data-fa-transform="shrink-3"
-                            >
-                                {isDarkMode ? (
-                                    <FontAwesomeIcon icon={faLightbulb} />
-                                ) : (
-                                    <FontAwesomeIcon icon={faLightbulb} />
-                                )}
-                            </span>
-                        </Button>
-                    </NavItem> */}
-                </Nav>
-            </Collapse>
+                    Gallery
+                </Link>
+            </NavItem>
+            <NavbarBrand href="/">
+                <img
+                    src="/logo.svg"
+                    alt=""
+                    width="200"
+                    style={{
+                        filter: 'invert(95%) sepia(9%) saturate(1029%) hue-rotate(180deg) brightness(98%) contrast(90%)',
+                        marginRight: '0',
+                    }}
+                />
+            </NavbarBrand>
+            <NavItem
+                className="mx-4"
+                style={{
+                    listStyle: 'none',
+                    backgroundImage: 'none',
+                    backgroundRepeat: 'none',
+                    backgroundPosition: '0',
+                }}
+            >
+                <Link
+                    to="/about"
+                    style={{
+                        color: 'inherit',
+                        textDecoration: 'none',
+                    }}
+                >
+                    About
+                </Link>
+            </NavItem>
         </Navbar>
     );
 };

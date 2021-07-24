@@ -35,8 +35,15 @@ const Gallery = () => {
     return (
         <Container>
             <Row>
-                <Col sm={12} className="my-4 d-flex justify-content-center">
-                    <CardDeck>
+                <Col sm={12} className="my-4">
+                    <CardDeck
+                        style={{
+                            display: 'grid',
+                            gridGap: '2rem',
+                            gridTemplateColumns:
+                                'repeat(auto-fit, minmax(375px, 1fr))',
+                        }}
+                    >
                         {(collections || []).map((collection: Collection) => {
                             return (
                                 <Card key={collection.collectionId}>
@@ -47,7 +54,6 @@ const Gallery = () => {
                                     >
                                         <CardImg
                                             top
-                                            style={{ width: 400 }}
                                             src={collection.headerImageUrl}
                                         />
                                     </Link>
