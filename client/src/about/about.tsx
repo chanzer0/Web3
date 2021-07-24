@@ -424,7 +424,7 @@ const About = () => {
                                             is a secure browser extension that
                                             most dApps use to interact. To learn
                                             how to install and use MetaMask, I
-                                            reccommend{' '}
+                                            recommend{' '}
                                             <a
                                                 target="_blank"
                                                 rel="noopener noreferrer"
